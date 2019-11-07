@@ -1,0 +1,162 @@
+{
+	"info": {
+		"name": "RequestHTTPtoBlackboard-day1",
+		"_postman_id": "1b3ac4bd-2513-73e5-d4a9-4466bcd1d0b8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "blackboard add user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_content_key",
+						"value": "gG7hUomG7CTGRu5dNs0h1BHK9o-HGmWk2lT3CBxBK5dH0eupIMTphv1CChRgmIbKzOUb4flXWA5_GiIilEkW2coPxcGdWrWqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCJoLrbXpCcZYP0mQmeeATSSpMsjL69BPvr-HraFiakFlkmQHewrKSA6s-isE3hrUg"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "toto",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Doe",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "joe@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "azerty",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "37",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "admin",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "date_insert",
+							"value": "2018-11-23T00:00:00.000Z",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/user",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "blackboard add article",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Ninebot by Segway Kickscooter ES2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Urbain - Route (8'), Autonomie Jusqu'à 25 km, Vitesse max. 25 km/h",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "499",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "12.5",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"value": "ninebot-segway-kickscooter.jpg",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/article",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"article"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

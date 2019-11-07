@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BlackBoard</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+      <%- include('header.ejs') %>
+
+      <div id="wrapper">
+  
+        <!-- Sidebar -->
+        <%- include('sidebar.ejs') %>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <div class="card mb-3">
+            <div class="card-header">
+            <i class="fas fa-table"></i>
+             Liste des commandes</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="product-list" class="table table-bordered" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Date Commande</th>
+                      <th>Client Id</th>
+                      <th>Total</th>
+                      <th>Frais de port</th>
+                      <th>Payée</th>
+                      <th>Date Paiement</th>
+                      <th>Expédiée</th>
+                      <th>Date Exp</th>
+                      <th>Adresse</th>
+                      <th>Ville</th>
+                      <th>Code postal</th>
+                      <th>Détail</th>
+                    </tr>
+                  </thead>
+                 
+                  <tbody>
+                      <% for(var i = 0; i<orders.length; i++){ 
+                        console.log(orders[i].dateInsert)
+                        %>
+                    <tr>
+                        <!-- total : String,
+                       
+                      
+                        status_payment: String, 
+                        
+                        status_shipment: Boolean,
+                        
+                        -->
+                      <td><%= dateFormat(orders[i].date_insert)%></td>
+                      <td>876FFR45</td>
+                      <td><%= orders[i].total%> €</td>
+                      <td><%= orders[i].shipping_cost%> €</td>
+                      <td class="status-secondary"><i class="fas fa-circle"></i></td>
+                      <td><%= dateFormat(orders[i].date_payment)%></td>
+                      <td class="status-secondary"><i class="fas fa-circle"></i></td>
+                      <td><%= dateFormat(orders[i].date_shipment)%></td>
+                      <td><%= orders[i].delivery_address%></td>
+                      <td><%= orders[i].delivery_country%></td>
+                      <td><%= orders[i].delivery_zipcode%></td>
+                      <td><a href="/order-page?macommande=<%=orders[i].id%>">voir</a></td>
+                    </tr>
+                    <% } %>
+<!--                 <tr>
+                      <td>18/01/19</td>
+                      <td>U60998SD</td>
+                      <td>654€</td>
+                      <td>29€</td>
+                      <td class="status-success"><i class="fas fa-circle"></i></td>
+                      <td>18/01/19</td>
+                      <td class="status-secondary"><i class="fas fa-circle"></i></td>
+                      <td>-</td>
+                      <td>76 Avenue Georges 5</td>
+                      <td>Paris</td>
+                      <td>75008</td>
+                      <td><a href="/order-page">voir</a></td>
+                    </tr> --
+                    <tr>
+                      <td>16/01/19</td>
+                      <td>0JGGDTD5S</td>
+                      <td>910€</td>
+                      <td>33€</td>
+                      <td class="status-success"><i class="fas fa-circle"></i></td>
+                      <td>16/01/19</td>
+                      <td class="status-success"><i class="fas fa-circle"></i></td>
+                      <td>17/01/19</td>
+                      <td>7 Rue d'Athènes</td>
+                      <td>Paris</td>
+                      <td>75009</td>
+                      <td><a href="/order-page">voir</a></td>
+                    </tr>
+                    <tr>
+                      <td>07/01/19</td>
+                      <td>ZEDF54457</td>
+                      <td>430€</td>
+                      <td>23€</td>
+                      <td class="status-danger"><i class="fas fa-circle"></i></td>
+                      <td>refusé</td>
+                      <td class="status-secondary"><i class="fas fa-circle"></i></td>
+                      <td>-</td>
+                      <td>13 Rue Tupin</td>
+                      <td>Lyon</td>
+                      <td>69002</td>
+                      <td><a href="/order-page">voir</a></td>
+                    </tr>
+                    <tr>
+                      <td>03/01/19</td>
+                      <td>JHS5699J</td>
+                      <td>632€</td>
+                      <td>27€</td>
+                      <td class="status-success"><i class="fas fa-circle"></i></td>
+                      <td>03/01/19</td>
+                      <td class="status-success"><i class="fas fa-circle"></i></td>
+                      <td>03/01/19</td>
+                      <td>33 Rue Malesherbes</td>
+                      <td>Lyon</td>
+                      <td>69006</td>
+                      <td><a href="/order-page">voir</a></td>
+                    </tr> -->
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Blackboard</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+
+  </body>
+
+</html>
